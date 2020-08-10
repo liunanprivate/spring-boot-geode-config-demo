@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: geodeDemo
+  data:
+    gemfire:
+      pool:
+        locators: localhost[10334]  #locator远程客户端地址与端口
+      management:                   #开启geode Api 访问模式 创建region
+        use-http: true
+        require-https: false
+        http:
+          host: localhost
+          port: 7070
+      entities:
+        base-packages: com.geode
+      cluster:
+        region:
+          type: PARTITION          #指定region类型 default PARTITION
+#      security:
+#        username:
+#        passowrd:
